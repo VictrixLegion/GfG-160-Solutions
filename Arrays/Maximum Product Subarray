@@ -1,0 +1,12 @@
+int maxProduct(vector<int> &arr) {
+        int p=arr[0];
+        int maxp=arr[0];
+        int minp=arr[0];
+        for(int i=1;i<arr.size();i++){
+            int temp=max({arr[i],minp*arr[i],maxp*arr[i]});
+            minp=min({arr[i],minp*arr[i],maxp*arr[i]});
+            maxp=temp;
+            p=max(p,maxp);
+        }
+        return p;
+    }
